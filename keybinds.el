@@ -102,10 +102,6 @@
      (define-key paxedit-mode-map (kbd "C-#") 'paxedit-symbol-kill)))
 
 
-(require 'align-cljlet)
-
-(global-set-key (kbd "s-i") 'align-cljlet)
-
 (global-set-key [M-tab] 'company-complete)
 
 ;; Font size

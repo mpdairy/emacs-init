@@ -100,27 +100,24 @@
  '(cider-buffer-name-show-port t)
  '(cljr-favor-prefix-notation nil)
  '(cljr-favor-private-functions nil)
- '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
+ '(custom-enabled-themes '(sanityinc-tomorrow-bright))
  '(custom-safe-themes
-   (quote
-    ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
+   '("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default))
  '(delete-selection-mode t)
  '(fci-rule-color "#393939")
  '(git-link-open-in-browser t)
- '(haskell-process-args-cabal-repl (quote ("--ghc-option=-ferror-spans")))
+ '(haskell-process-args-cabal-repl '("--ghc-option=-ferror-spans"))
  '(inhibit-startup-screen t)
  '(magit-emacsclient-executable "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient")
  '(nrepl-host "localhost")
  '(package-selected-packages
-   (quote
-    (sass-mode rainbow-delimiters purescript-mode projectile powerline paxedit markdown-mode json-mode idris-mode haskell-mode git-link expand-region color-theme-sanityinc-tomorrow color-identifiers-mode clojure-snippets clj-refactor cider-eval-sexp-fu buffer-move avy arduino-mode align-cljlet)))
+   '(sass-mode rainbow-delimiters purescript-mode projectile powerline paxedit markdown-mode json-mode idris-mode haskell-mode git-link expand-region color-theme-sanityinc-tomorrow color-identifiers-mode clojure-snippets clj-refactor cider-eval-sexp-fu buffer-move avy arduino-mode))
  '(projectile-use-git-grep t)
  '(show-paren-delay 0)
  '(show-paren-mode t)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#f2777a")
+   '((20 . "#f2777a")
      (40 . "#f99157")
      (60 . "#ffcc66")
      (80 . "#99cc99")
@@ -137,7 +134,7 @@
      (300 . "#f2777a")
      (320 . "#f99157")
      (340 . "#ffcc66")
-     (360 . "#99cc99"))))
+     (360 . "#99cc99")))
  '(vc-annotate-very-old-color nil))
 
 (split-window-right)
