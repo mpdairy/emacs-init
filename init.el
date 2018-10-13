@@ -8,7 +8,7 @@
   (when (< emacs-major-version 24)
     ;; For important compatibility libraries like cl-lib
     (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
-(package-initialize)
+;;(package-initialize)
 
 
 (when (not package-archive-contents)
@@ -46,7 +46,7 @@
     smex
     ido-completing-read+
     json-mode
-    yalinum
+;;    yalinum
     sass-mode
     markdown-mode
     color-theme-sanityinc-tomorrow
@@ -81,8 +81,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:height 120 :weight bold))))
  '(font-lock-warning-face ((((class color) (min-colors 89)) (:weight bold :foreground "#cc0000"))))
- '(idle-highlight ((t (:inherit region :background "maroon4"))))
- '(linum-face ((t (:background "gray20" :foreground "#e2c648")))))
+ '(idle-highlight ((t (:inherit region :background "maroon4")))))
 ;; face was height 116
 
 (custom-set-variables
@@ -204,8 +203,10 @@
 (add-hook 'text-mode-hook 'visual-line-mode)
 (auto-fill-mode -1)
 
-;; (require 'yalinum)
-(global-linum-mode t)
+(setq confirm-kill-emacs nil)
+
+(require 'linum)
+;; (global-yalinum-mode t)
 (setq linum-format "%3d ")
 
 (set-face-foreground 'linum "#B9CA4A")
@@ -216,6 +217,7 @@
 (setq-default right-fringe-width 15)
 
 (set-face-attribute 'fringe nil :background "#424242")
+(set-face-attribute 'fringe nil :foreground "#ffffff")
 
 
 (setq-default tab-width 2)
@@ -232,17 +234,32 @@
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
+(add-hook 'prog-mode-hook 'linum-mode)
+;;(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
-;; (defun haskell-mode-setup ()
-;;   (setq haskell-process-type 'stack-ghci))
-;;; 
+(setq shift-select-mode nil)
+
+(defun haskell-mode-setup ()
+  (setq haskell-process-type 'stack-ghci))
+; 
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-hook 'haskell-mode-hook 'haskell-mode-setup)
+(remove-hook 'haskell-mode-hook 'haskell-doc-mode t)
+(remove-hook 'haskell-mode-hook 'eldoc-mode t)
+(global-eldoc-mode -1)
 
 (setq haskell-process-args-stack-ghci
       '("--with-ghc=ghci"
         "--ghci-options=-ferror-spans"
         "--no-build" "--no-load" "--test" "--bench"))
+
+(setq haskell-doc-show-global-types nil)
+(setq haskell-doc-show-reserved nil)
+(setq haskell-doc-show-prelude nil)
+(setq haskell-doc-show-strategy nil)
+(setq haskell-doc-show-user-defined nil)
+(setq haskell-doc-use-inf-haskell nil)
+
 
 ;; (setq haskell-process-args-stack-ghci
 ;;       ;; '("--ghci-options='-ferror-spans'")
